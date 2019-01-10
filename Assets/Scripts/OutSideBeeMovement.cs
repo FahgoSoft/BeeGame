@@ -30,7 +30,7 @@ public class OutSideBeeMovement : MonoBehaviour
         RaycastHit hit;
         if (Input.GetMouseButtonDown(0)) 
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))
             {
                 // if (hit.collider.CompareTag("Enemy"))
                 // {
