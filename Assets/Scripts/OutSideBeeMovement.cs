@@ -25,7 +25,7 @@ public class OutSideBeeMovement : MonoBehaviour
     {
         if (inside)
         {
-            transform.Rotate(new Vector3(90, 0, 0));
+            //transform.Rotate(new Vector3(0, 0, 90));
         }
         RaycastHit hit;
         if (Input.GetMouseButtonDown(0)) 
