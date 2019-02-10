@@ -12,12 +12,25 @@ public class Hive
     int HoneyCount=0;
 
     //Rooms
-    Rooms[] rooms;
+    Rooms[,] rooms;
 
-    public Hive()
+    public Hive(int initialHeight, int initialWidth)
     {
-        Width = 3;
-        Height = 3;
+        Width = initialWidth;
+        Height = initialHeight;
+
+        for(int x = 0; x<Height; x++)
+        {
+            for(int y = 0; y<Width; y++)
+            {
+                rooms[x, y] = new Rooms(int.Parse(x.ToString() + y.ToString()), x, y);
+
+                if(x==(x/2) && y == 0)
+                {
+                    rooms[x, y].Type = Rooms.RoomTypes.QueensChamber;
+                }
+            }
+        }
 
     }
 

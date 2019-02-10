@@ -8,10 +8,10 @@ public class Rooms
     int ID;
     string Label;
     int X, Y;
-    RoomTypes Type;
+    private RoomTypes type;
 
     //Enums
-    enum RoomTypes {QueensChamber,Hatchery,Stockpile,Empty};
+    public enum RoomTypes {QueensChamber,Hatchery,Stockpile,Empty};
 
     //Todo: Connections/blockages
 
@@ -20,6 +20,18 @@ public class Rooms
         this.ID = id;
         this.X = x;
         this.Y = y;
-        this.Type = RoomTypes.Empty;
+        this.type = RoomTypes.Empty;
+    }
+
+    public RoomTypes Type
+    {
+        get
+        {
+            return type;
+        }
+        set
+        {
+            this.type = value;
+        }
     }
 }
