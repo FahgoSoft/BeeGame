@@ -20,6 +20,7 @@ public class FlyCamera : MonoBehaviour {
     public float rotateSpeed;
     private Vector3 lastMouse;// = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun= 1.0f;
+    public float maxHeight = 80;
 
     //private void Start()
     //{
@@ -58,12 +59,20 @@ public class FlyCamera : MonoBehaviour {
        
         p = p * Time.deltaTime;
        Vector3 newPosition = transform.position;
+        Vector3 newpos = transform.position + p;
         // if (Input.GetKey(KeyCode.Space)){ //If player wants to move on X and Z axis only
-            //transform.Translate(p);
+        //transform.Translate(p);
+        if (newpos.x >= -240 && newpos.x <= 240)
             newPosition.x = transform.position.x + p.x;
+        if (newpos.z >= -240 && newpos.z <= 240)
             newPosition.z = transform.position.z + p.z;
+       if (newpos.y <= maxHeight && newpos.y >= 5)
+        
+        {
             newPosition.y = transform.position.y + p.y;
+        }
             transform.position = newPosition;
+
         // }
         // else{
         //     transform.Translate(p);
@@ -88,11 +97,11 @@ public class FlyCamera : MonoBehaviour {
         if (Input.GetKey (KeyCode.D)){
             p_Velocity += new Vector3(1, 0, 0);
         }
-        if(Input.GetAxis("Mouse ScrollWheel") < 0)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0 ||Input.GetKey (KeyCode.PageUp)) 
         {
             p_Velocity += new Vector3(0, 1, 0);
         }
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetKey (KeyCode.PageDown))
         {
             p_Velocity += new Vector3(0, -1, 0);
         }
