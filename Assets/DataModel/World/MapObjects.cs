@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MapObjects
 {
-    int ID;
+    string ID;
     int X, Z;
     ResourceType Type;
 
     public enum ResourceType {Flowers, Trees, PollenBlobs}
 
-    public MapObjects( int id, int x, int z, ResourceType type)
+    public MapObjects(int x, int z, ResourceType type)
     {
-        this.ID = id;
+        this.ID = "MapObject " + x.ToString() + "_" + z.ToString();
         this.X = x;
         this.Z = z;
         this.Type = type;

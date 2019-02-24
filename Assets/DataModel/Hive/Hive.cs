@@ -10,6 +10,7 @@ public class Hive
 
     //Resources
     int HoneyCount=0;
+    int BeeBreadCount = 0;
 
     //Rooms
     Rooms[,] rooms;
@@ -18,6 +19,7 @@ public class Hive
     {
         Width = initialWidth;
         Height = initialHeight;
+        rooms = new Rooms[Width, Height];
 
         for(int x = 0; x<Height; x++)
         {
