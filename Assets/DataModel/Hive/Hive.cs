@@ -5,35 +5,50 @@ using UnityEngine;
 public class Hive 
 {
     //Properties
-    int Width;
-    int Height;
+    int width;
+    int height;
 
     //Resources
     int HoneyCount=0;
     int BeeBreadCount = 0;
 
     //Rooms
-    Rooms[,] rooms;
+    Room[,] rooms;
 
     public Hive(int initialHeight, int initialWidth)
     {
-        Width = initialWidth;
-        Height = initialHeight;
-        rooms = new Rooms[Width, Height];
+        width = initialWidth;
+        height = initialHeight;
+        rooms = new Room[width, height];
 
-        for(int x = 0; x<Height; x++)
+        for(int x = 0; x<height; x++)
         {
-            for(int y = 0; y<Width; y++)
+            for(int y = 0; y<width; y++)
             {
-                rooms[x, y] = new Rooms(int.Parse(x.ToString() + y.ToString()), x, y);
+                rooms[x, y] = new Room(x, y);
 
                 if(x==(x/2) && y == 0)
                 {
-                    rooms[x, y].Type = Rooms.RoomTypes.QueensChamber;
+                    rooms[x, y].Type = Room.RoomTypes.QueensChamber;
                 }
             }
         }
 
+    }
+
+    public Room[,] Rooms
+    {
+        get { return rooms; }
+    }
+
+    public int Width
+    {
+        get { return width; }
+    }
+
+    public int Height
+    {
+        get { return height; }
     }
 
 }

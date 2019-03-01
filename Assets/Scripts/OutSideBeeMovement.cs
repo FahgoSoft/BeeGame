@@ -65,7 +65,7 @@ public class OutSideBeeMovement : MonoBehaviour
                 timer = 0;
             }
         }
-        status.text = navMeshAgent.hasPath.ToString();
+        //status.text = navMeshAgent.hasPath.ToString();
     }
 
     // Destroy everything that enters the trigger

@@ -1,35 +1,43 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class World
 {
-    public Hive hive;
-    MapObjects[,] MapTiles;
+    Hive hive;
+    MapObjects[] mapObjects;
     int MapWidth;
     int MapHeight;
 
     public World(int mapWidth, int mapHeight, int hiveWidth=3, int hiveHeight=3)
     {
-        MapTiles = new MapObjects[mapWidth, mapHeight];
         this.MapHeight = mapHeight;
         this.MapWidth = mapWidth;
 
         hive = new Hive(hiveHeight, hiveWidth);
 
+        int noOfObjects = 50;
+
+        this.mapObjects = new MapObjects[noOfObjects];
+
+        for (int i = 0; i < noOfObjects; i++)
+        {
+            float x = Random.Range(-((MapWidth / 2) - 10), (MapWidth / 2) - 10);
+            float z = Random.Range(-((MapHeight / 2) - 10), (MapHeight / 2) - 10);
+            int type = System.Convert.ToInt32(Mathf.Floor(Random.Range(0, 3)));
+            mapObjects[i] = new MapObjects(x, z, (MapObjects.ResourceType)type);
+        }
+
     }
 
-    void generateTiles()
+    public MapObjects[] MapObjects
     {
-        Random rnd = new Random();
-        for (int x = 0; x < MapWidth; x++)
-        {
-            for (int z = 0; z < MapHeight; z++)
-            {
-                int type = rnd.Next(0, 3);
-                
-                MapTiles[x, z] = new MapObjects(x, z, (MapObjects.ResourceType)type);
-            }
-        }
+        get { return mapObjects; }
     }
+
+    public Hive Hive
+    {
+        get { return hive; }
+    }
+
 }

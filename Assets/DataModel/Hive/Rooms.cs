@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rooms
+public class Room
 {
     //Properties
-    int ID;
+    string id;
     string Label;
     int X, Y;
     private RoomTypes type;
@@ -15,9 +15,9 @@ public class Rooms
 
     //Todo: Connections/blockages
 
-    public Rooms(int id, int x, int y)
+    public Room(int x, int y)
     {
-        this.ID = id;
+        this.id = "Room-"+x.ToString()+"_"+y.ToString();
         this.X = x;
         this.Y = y;
         this.type = RoomTypes.Empty;
@@ -33,5 +33,10 @@ public class Rooms
         {
             this.type = value;
         }
+    }
+
+    public string ID
+    {
+        get { return id; }
     }
 }
