@@ -135,5 +135,11 @@ public class HiveController : MonoBehaviour
         {
             surface.BuildNavMesh();
         }
+
+        GameObject hexagonCell = new PrimitiveMeshes().NewHexagonPrimitive("newCell", HiveWall);
+        hexagonCell.transform.SetPositionAndRotation(new Vector3(-30, 0, -15), new Quaternion(0f, 0f, 0f, 0f));
+        GameObject hexagonCell2 = new PrimitiveMeshes().NewHexagonPrimitive("newCell2", HiveWall);
+        hexagonCell.transform.SetPositionAndRotation(new Vector3(-45, 0, -30), new Quaternion(0f, 0f, 0f, 0f));
+
     }
 }
